@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+	
+	<div class="row">
+		<h1>Mis partidas</h1>
+		<hr>
+		<div class="table-responsive">
+			<table class="table table-striped" id="example"  data-toggle="table"
+  data-height="460"
+  data-pagination="true">
+				<thead>
+			    	<tr>
+			      	<th scope="col">Fecha partida</th>
+			      	<th scope="col">Color del jugador</th>
+			     	<th scope="col">Color de la ruleta</th>
+			      	<th scope="col">Dinero apostado</th>
+			      	<th scope="col">Dinero ganado</th>
+			      	<th scope="col">Dinero perdido</th>
+			      	<th scope="col">Porcentaje apostado</th>
+			    	</tr>
+			  	</thead>
+			  <tbody>
+			  	<div *ngIf="mispartidas == null">
+			  		<strong>No tienes partidas jugadas</strong>
+			  	</div>
+			    <tr *ngFor="let partidas of mispartidas">
+			      <th scope="row">{{partidas.fechapartida.date | date: 'yyyy/MM/dd'}}</th>
+			      <td>{{partidas.colorseleccionado}}</td>
+			      <td>{{partidas.colorsistema}}</td>
+			      <td>{{partidas.dineroapostado}}</td>
+			      <td>{{partidas.dineroganado}}</td>
+			      <td>{{partidas.dineroperdido}}</td>
+			      <td *ngIf="partidas.porcentajeapostado == 0.19">19%</td>			      
+			      <td *ngIf="partidas.porcentajeapostado == 0.11">11%</td>			      
+			    </tr>			  	
+			  </tbody>
+			</table>
+		</div>
+	</div>		
+</div>

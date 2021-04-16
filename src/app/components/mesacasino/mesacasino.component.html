@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="container-fluid containerimg">
+	
+	<div class="row imagenfondo justify-content-md-center" style="background: url(assets/img/wallpaper3.jpg);">
+<!-- 		<div class="col-sm text-center">
+
+				
+		</div> -->
+		<div class="row mt-4">
+			<div class="col-12 col-sm-6 col-lg-6">
+				
+				<div class="card" style="width: 18rem;margin:0 auto;">
+				  <div class="card-body">
+				    <h5 class="card-title">Apuesta ha realizar</h5>
+				    <p class="card-text">Color seleccionado: {{colorsel}}</p>
+				    <hr>
+				    <p class="card-text">Dinero apostado: {{dineroApostado}}</p>
+				    <hr>
+				    <p class="card-text">Resultado: {{colorsistema}}</p>				    
+				  </div>
+				</div>
+
+			</div>
+			<div class="col-12 col-sm-4 col-4">
+				<img *ngIf="activarGif" src="assets/img/ruleta.gif" alt="ruletagirando">
+			</div>
+
+		</div>
+		<div class="row justify-content-md-center mt-4" style="padding-bottom: 28px;">
+				<div class="col-12 col-sm-4 col-lg-4 text-center">
+					<div class="card" style="width: 18rem;flex-direction: row !important;">
+					  <img src="{{dataJugador.rutaimagen}}" style="height: 100px;margin-top: 5%;" class="img-fluid" alt="Jugador" width="100px">
+					  <div class="card-body">
+					    <h5 class="card-title">{{dataJugador.nickname}}</h5>
+					    <p class="card-text">Saldo actual: {{dataJugador.saldo}}</p>
+						  <div class="card-actions">
+						  	<a class="btn btn-primary" [routerLink]="['/menuPrincipal']">Salir de la partida</a>
+						  </div>					    
+					  </div>
+
+					</div>				
+				</div>			
+			<div class="col-12 col-sm-3 col-lg-3 justify-content-md-center text-center" style="background: white;border-radius: 10px;padding: 15px;">
+				
+				<div class="col-12 col-sm-12 col-lg-12">
+					<h6 class="text-muted">¿A que color deseas apostar?</h6>
+					<a class="btn btn-success margin-rai" [style]='selverde' (click)="colorSeleccionado('Verde')">Verde</a>
+					<a class="btn btn-danger margin-rai" [style]='selrojo' (click)="colorSeleccionado('Rojo')">Rojo</a>
+					<a class="btn btn-dark" [style]='selnegro' (click)="colorSeleccionado('Negro')">Negro</a>
+				</div>
+				<hr>
+				<div class="col-12 col-sm-12 col-lg-12 mt-4">
+					<h6 class="text-muted">¿Cuanto deseas apostar</h6>
+					<a class="btn btn-outline-primary margin-rai" [style]="sel11" (click)="dineroSeleccionado(0.11)">11%</a>
+					<a class="btn btn-outline-primary" [style]="sel19" (click)="dineroSeleccionado(0.19)">19%</a>	
+				</div>
+				<hr>
+				<a class="btn btn-primary" (click)="apostar()">Apostar</a>
+
+
+			</div>
+		</div>	
+	</div>
+</div>
+

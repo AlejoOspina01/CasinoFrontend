@@ -1,0 +1,22 @@
+.cardlogin{
+	border: 0.5px solid #ccc;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 1px 1px 8px 1px #000;
+    height: 83%;
+    background: #353434b8;
+}
+
+.containerimagenfondo{
+	position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.imagenfondo{
+	align-self: center;
+    justify-content: center;
+    height: 100%;
+}

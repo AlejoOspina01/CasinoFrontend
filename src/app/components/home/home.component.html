@@ -1,0 +1,40 @@
+<div class="container-fluid containerimagenfondo">
+	<div class="row imagenfondo" style="background: url(assets/img/wallpaper.jpg);">
+		<div class="col-12 col-sm-4 col-lg-4 cardlogin mt-4">
+			<div class="col-12 text-center">
+				<img src="assets/img/logo.png" width="250px" alt="logo">	
+			</div>			
+			<h1>Registrarse</h1>
+			<div class="col-12 col-sm-12 col-lg-12">
+				<div class="alert alert-info" *ngIf="valcorrecto == 1">
+					<strong>Registrado correctamente</strong>
+				</div>
+				<div class="alert alert-warning" *ngIf="valcorrecto == 2">
+					<strong>Error al registrar, {{msg}}</strong>
+				</div>					
+			</div>
+			<div class="mb-3">
+				<form>
+				  <div class="mb-3">
+				    <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
+				    <input type="text" class="form-control" #nickname id="idnickname" >
+				    <div id="emailHelp" class="form-text">El nombre que veran los demas jugadores</div>
+
+				    <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+				    <input type="pass" class="form-control" #password id="idpassword" >
+				    <div id="emailHelp" class="form-text">Por favor ingresar una contraseña con mas de 8 caracteres</div>				    
+				  </div>
+				  <div class="col text-center">
+				  	<a (click)="registrarJugador(nickname.value,password.value)" class="btn btn-primary">Ingresar</a> 
+				  	<a class="btn btn-primary" style="margin-left: 10px;" [routerLink]="['/login']">Ya tengo una cuenta</a>
+				  </div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>	
+</div>
+
+
+

@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="assets/img/logo.png" width="80px" alt=""></a>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/menuPrincipal']">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/mispartidas']">Mis partidas</a>
+        </li>
+      </ul>
+
+    </div>
+         <span class="navbar-text">
+        Saldo : <strong>{{dataJugador.saldo}}</strong>
+      </span>
+      <span class="navbar-text">
+        <li class="nav-item dropdown" style="margin-right: 10px;">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{dataJugador.rutaimagen}}" alt="avatar6" width="30px">{{dataJugador.nickname}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li ><a class="nav-link active"  aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Modificar datos</a></li>            
+            <li ><a class="nav-link active"  aria-current="page" href="#" (click)="cerrarSesion()">Cerrar sesión</a></li>            
+            <li ><a class="nav-link active btn-danger" style="color: white;cursor: pointer;" aria-current="page" (click)="eliminarCuenta()">Eliminar cuenta</a></li>
+          </ul>
+        </li>        
+        
+      </span> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>      
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="col-12 text-center mb-4">
+            <img src="{{dataJugador.rutaimagen}}" alt="Jugador" width="150px">
+            <div class="row">
+              <div class="col">
+                <a style="cursor: pointer;" (click)="cambiarImagen('assets/img/avatar1.jpg')"><img src="assets/img/avatar1.jpg" alt="avatar1" width="30px"></a>
+              </div>
+              <div class="col">
+                <a style="cursor: pointer;" (click)="cambiarImagen('assets/img/avatar2.jpg')"><img src="assets/img/avatar2.jpg" alt="avatar2" width="30px"></a>
+              </div>
+              <div class="col">
+                <a style="cursor: pointer;" (click)="cambiarImagen('assets/img/avatar3.jpg')"><img src="assets/img/avatar3.jpg" alt="avatar3" width="30px"></a>
+              </div>
+              <div class="col">
+                <a style="cursor: pointer;" (click)="cambiarImagen('assets/img/avatar4.jpg')"><img src="assets/img/avatar4.jpg" alt="avatar4" width="30px"></a>
+              </div>
+              <div class="col">
+                <a style="cursor: pointer;" (click)="cambiarImagen('assets/img/avatar5.jpg')"><img src="assets/img/avatar5.jpg" alt="avatar5" width="30px"></a>
+              </div>
+              <div class="col">
+                <a style="cursor: pointer;" (click)="cambiarImagen('assets/img/avatar6.jpg')"><img src="assets/img/avatar6.jpg" alt="avatar6" width="30px"></a>
+              </div>
+            </div>
+            <hr>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Nickname</span>
+            <input type="text" value="{{dataJugador.nickname}}" #nicknamenew class="form-control" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Contraseña</span>
+            <input type="text" value="" #passwordnew class="form-control" placeholder="Contraseña" aria-label="Username" aria-describedby="addon-wrapping">
+          </div>          
+        </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="actualizarDatos(nicknamenew.value,passwordnew.value)" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" >Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
