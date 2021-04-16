@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class PartidaService {
 
-	url="http://localhost/casino/"
+	url="https://casinobackend.herokuapp.com/"
 
   constructor(private http: HttpClient) { }
 
